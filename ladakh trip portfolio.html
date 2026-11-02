@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ladakh in 5 Days: Himalayan Trails</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@property --hue{syntax:"<number>";inherits:true;initial-value:205}
+:root{--bg:#e9f0f5;--fg:#13202e;--mu:#51627a;--ln:rgba(19,32,46,.2);--cd:rgba(19,32,46,.06);--ac:hsl(var(--hue) 75% 34%);--gl:.2;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transition:--hue .9s}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080e1a;--fg:#eaf0f8;--mu:#93a3ba;--ln:rgba(234,240,248,.2);--cd:rgba(234,240,248,.07);--ac:hsl(var(--hue) 90% 68%);--gl:.32;--on:#080e1a}}
+:root[data-theme="dark"]{--bg:#080e1a;--fg:#eaf0f8;--mu:#93a3ba;--ln:rgba(234,240,248,.2);--cd:rgba(234,240,248,.07);--ac:hsl(var(--hue) 90% 68%);--gl:.32;--on:#080e1a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 "Instrument Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 20px 14px}
+nav b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:18px}
+.btn{display:inline-block;background:var(--ac);color:var(--on);font-weight:600;text-decoration:none;padding:12px 22px;border-radius:999px}
+.btn.sm{padding:8px 16px;font-size:14px}
+.glow{background:radial-gradient(60% 55% at 50% 45%,hsl(var(--hue) 70% 50%/var(--gl)),transparent 72%),var(--bg)}
+.hero{min-height:100svh;display:grid;place-content:center;text-align:center;padding:90px 24px 60px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(52px,13vw,168px);font-weight:800}
+.hero p{max-width:46ch;margin:18px auto 28px;color:var(--mu);font-size:clamp(16px,2vw,19px)}
+.stats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:34px;color:var(--mu);font-size:14px}
+.stats b{display:block;color:var(--fg);font-size:22px;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.mt{position:absolute;left:0;right:0;bottom:0;width:100%;height:30%;pointer-events:none}
+.mt path{fill:var(--fg)}
+.trail{position:relative;padding-bottom:6svh}
+.tl{text-align:center;padding:14svh 24px 4svh}
+.tl h2{font-size:clamp(34px,5.5vw,60px)}
+.tl p{color:var(--mu);margin:10px auto 0;max-width:40ch}
+.trail>svg{position:absolute;left:0;top:0;z-index:2;pointer-events:none;overflow:visible}
+.track{fill:none;stroke:var(--ln);stroke-width:2;stroke-dasharray:3 9;stroke-linecap:round}
+.prog{fill:none;stroke:var(--ac);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.node{pointer-events:all;cursor:pointer}
+.node circle{fill:var(--bg);stroke:var(--ln);stroke-width:2;transition:.3s}
+.node text{fill:var(--mu);font:700 22px "Bricolage Grotesque",system-ui,sans-serif;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.node.done circle{stroke:var(--ac)}
+.node.on circle{fill:var(--ac);stroke:var(--ac)}
+.node.on text{fill:var(--on)}
+.mk{fill:var(--fg);stroke:var(--ac);stroke-width:5}
+.day{position:relative;min-height:88svh;display:flex;align-items:center}
+.pin{position:absolute;top:50%;width:1px;height:1px}
+.day.l .pin{left:24%}.day.r .pin{left:76%}
+.card{position:relative;z-index:1;width:min(44%,460px);margin:0 6% 0 auto;padding:24px 26px;border-radius:20px;border:1px solid var(--ln);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(8px);opacity:.18;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.day.r .card{margin:0 auto 0 6%}
+.day.on .card{opacity:1;transform:none}
+.ph{aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:16px;position:relative;display:grid;place-items:end start;background:linear-gradient(160deg,hsl(var(--hue) 60% 40%/.35),var(--cd))}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph span{padding:10px 14px;font-size:13px;color:var(--mu)}
+.card .k{color:var(--ac);font-weight:600;font-size:14px}
+.card h3{font-size:clamp(26px,3.2vw,38px);margin:6px 0 10px}
+.card p{margin:0 0 14px;color:var(--mu)}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
+.card li{background:var(--cd);border-radius:10px;padding:6px 12px;display:flex;gap:12px}
+.card li b{color:var(--ac);font-weight:600;min-width:46px}
+.plan{padding:90px 24px 110px;max-width:980px;margin:0 auto}
+.plan h2{font-size:clamp(36px,6vw,64px);margin-bottom:40px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.cols h3{font-size:22px;margin-bottom:12px}
+.cols ul{margin:0;padding-left:18px;color:var(--mu)}
+.cols li{margin:6px 0}
+.book{margin-top:56px;padding:34px;border-radius:24px;background:var(--cd);border:1px solid var(--ln);display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.book h3{font-size:clamp(30px,5vw,48px)}
+.book small{color:var(--mu);display:block;margin-top:6px}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:0 24px 60px}
+@media (max-width:700px){
+.day{align-items:flex-end;min-height:86svh;padding-bottom:5svh}
+.pin{top:22%}
+.day.l .pin{left:15%}.day.r .pin{left:85%}
+.card,.day.r .card{width:90%;margin:0 auto}
+}
+@media (prefers-reduced-motion:reduce){:root,.card{transition:none}}
+a:focus-visible,.node:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+</style>
+</head>
+<body>
+<nav><b>Himalayan Trails</b><a class="btn sm" href="#book">Book this trip</a></nav>
+
+<header class="hero glow">
+  <h1>Ladakh<br>in 5 days</h1>
+  <p>A small-group road trip through the high desert: monasteries, the world’s highest motorable passes, camel rides in the dunes and a lake that changes colour by the hour.</p>
+  <div><a class="btn" href="#journey">Start the journey</a></div>
+  <div class="stats"><span><b>5 days</b>Leh to Leh</span><span><b>5,360 m</b>highest pass</span><span><b>₹24,999</b>per person</span></div>
+  <svg class="mt" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true"><path opacity=".07" d="M0 200V120L120 60l90 70 110-90 120 100 100-60 130 80 110-70 130 90 90-40V200z"/><path opacity=".12" d="M0 200V160l100-50 80 40 140-80 100 70 120-60 150 90 110-50 200 70V200z"/></svg>
+</header>
+
+<main>
+<section class="trail" id="journey" aria-label="Day by day journey">
+  <div class="tl" id="tl"><h2>Follow the route</h2><p>Scroll down and the line traces your path from Day 1 to Day 5.</p></div>
+  <svg id="svg"><path class="track" id="track"/><path class="prog" id="prog"/><g id="nodes"></g><circle class="mk" id="mk" r="13"/></svg>
+  <div id="days"></div>
+</section>
+
+<section class="plan" id="book">
+  <h2>Everything for the road is sorted</h2>
+  <div class="cols">
+    <div><h3>Included</h3><ul><li>4 nights in hand-picked stays and lakeside camp</li><li>Breakfast and dinner every day</li><li>Private tempo traveller with an experienced local driver</li><li>Inner Line Permits for Nubra and Pangong</li><li>Oxygen cylinder and first-aid kit on every vehicle</li></ul></div>
+    <div><h3>Not included</h3><ul><li>Flights to and from Leh</li><li>Lunches and personal shopping</li><li>Camel ride fee at Hunder</li><li>Travel insurance</li></ul></div>
+    <div><h3>Good to know</h3><ul><li>Best months: June to September</li><li>Group size: 6 to 8 travellers</li><li>Day 1 is for rest. Skipping it is the most common cause of altitude sickness.</li><li>Carry a valid photo ID for permits</li></ul></div>
+  </div>
+  <div class="book">
+    <div><h3>₹24,999 per person</h3><small>Next batch: June. Pay 30% to hold your seat.</small></div>
+    <a class="btn" href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Ladakh%205-day%20trip" target="_blank" rel="noopener">Book on WhatsApp</a>
+  </div>
+</section>
+</main>
+<footer>Sample site made for a portfolio. Himalayan Trails is a fictional brand.</footer>
+
+<script>
+const D=[
+{h:205,ph:"Shanti Stupa at sunset, Leh",img:"",alt:"3,500 m",t:"Land in Leh",d:"Fly into the world’s highest desert and do nothing on purpose. Your body needs this day to adjust.",tm:[["11:00","Arrive and check in"],["16:00","Walk Leh market"],["18:30","Sunset at Shanti Stupa"]]},
+{h:28,ph:"Thiksey Monastery, Leh",img:"",alt:"3,500 m",t:"Monasteries and rivers",d:"Easy sights at low effort: two rivers meet in two colours, and cars seem to roll uphill at Magnetic Hill.",tm:[["09:00","Hall of Fame museum"],["11:30","Magnetic Hill and Sangam"],["15:00","Thiksey Monastery"]]},
+{h:280,ph:"Hunder sand dunes, Nubra Valley",img:"",alt:"5,359 m",t:"Over Khardung La",d:"Cross one of the highest motorable passes in the world into Nubra Valley, then ride double-humped camels over the Hunder dunes.",tm:[["07:00","Leave Leh"],["11:00","Khardung La top"],["16:00","Hunder dunes and camels"]]},
+{h:190,ph:"Pangong Tso",img:"",alt:"4,350 m",t:"Pangong Tso",d:"Drive the Shyok route to a lake that turns from turquoise to deep blue through the day. Sleep beside it.",tm:[["08:00","Leave Nubra"],["15:00","Reach the lake"],["18:00","Sunset and lakeside camp"]]},
+{h:340,ph:"Chang La pass",img:"",alt:"5,360 m",t:"Chang La and farewell",d:"One last high pass on the way back, hot chai at the top, then Leh in time for your flight or a final dinner.",tm:[["08:00","Leave Pangong"],["11:30","Chai at Chang La"],["15:00","Back in Leh, airport drop"]]}
+];
+const $=s=>document.querySelector(s),NS="http://www.w3.org/2000/svg";
+const T=$("#journey"),svg=$("#svg"),track=$("#track"),prog=$("#prog"),mk=$("#mk"),head=$("#tl");
+$("#days").innerHTML=D.map((d,i)=>`<article class="day ${i%2?"r":"l"}"><span class="pin"></span><div class="card"><div class="ph">${d.img?`<img src="${d.img}" alt="${d.ph}" loading="lazy">`:`<span>${d.ph}</span>`}</div><div class="k">Day ${i+1} of 5, ${d.alt}</div><h3>${d.t}</h3><p>${d.d}</p><ul>${d.tm.map(r=>`<li><b>${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div></article>`).join("");
+const days=[...document.querySelectorAll(".day")],pins=[...document.querySelectorAll(".pin")];
+const mkEl=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e};
+const nodes=D.map((_,i)=>{
+  const g=mkEl("g",{class:"node",tabindex:0,role:"button","aria-label":"Go to day "+(i+1)});
+  g.appendChild(mkEl("circle",{r:30}));
+  const t=mkEl("text",{});t.textContent=i+1;g.appendChild(t);
+  const go=()=>scrollTo({top:scrollY+pins[i].getBoundingClientRect().top-innerHeight*.5,behavior:"smooth"});
+  g.addEventListener("click",go);
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}});
+  $("#nodes").appendChild(g);return g;
+});
+let P=[],L=1,cur=-2;
+function layout(){
+  const W=T.offsetWidth,H=T.offsetHeight,tr=T.getBoundingClientRect();
+  svg.setAttribute("width",W);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  P=pins.map(p=>{const r=p.getBoundingClientRect();return[r.left-tr.left,r.top-tr.top]});
+  let px=W/2,py=head.offsetHeight-20,d=`M${px} ${py}`;
+  P.forEach(([x,y])=>{const m=(py+y)/2;d+=`C${px} ${m} ${x} ${m} ${x} ${y}`;px=x;py=y});
+  track.setAttribute("d",d);prog.setAttribute("d",d);
+  L=prog.getTotalLength();prog.style.strokeDasharray=L;
+  nodes.forEach((g,i)=>{const c=g.firstChild,t=g.lastChild;c.setAttribute("cx",P[i][0]);c.setAttribute("cy",P[i][1]);t.setAttribute("x",P[i][0]);t.setAttribute("y",P[i][1])});
+}
+function frame(){
+  const ty=innerHeight*.55-T.getBoundingClientRect().top;
+  let lo=0,hi=L;
+  for(let k=0;k<22;k++){const m=(lo+hi)/2;prog.getPointAtLength(m).y<ty?lo=m:hi=m}
+  prog.style.strokeDashoffset=L-lo;
+  const pt=prog.getPointAtLength(lo);
+  mk.setAttribute("cx",pt.x);mk.setAttribute("cy",pt.y);
+  let c=-1;P.forEach((p,i)=>{if(p[1]<=ty+10)c=i});
+  if(c!==cur){
+    cur=c;
+    days.forEach((d,i)=>d.classList.toggle("on",i<=c));
+    nodes.forEach((n,i)=>{n.classList.toggle("on",i===c);n.classList.toggle("done",i<c)});
+    document.documentElement.style.setProperty("--hue",D[Math.max(c,0)].h);
+  }
+}
+let tick=false;
+addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(()=>{tick=false;frame()})}},{passive:true});
+new ResizeObserver(()=>{layout();frame()}).observe(T);
+addEventListener("load",()=>{layout();frame()});
+layout();frame();
+</script>
+</body>
+</html>
